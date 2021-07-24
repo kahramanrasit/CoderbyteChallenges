@@ -1,28 +1,36 @@
 def StringChanges(strParam):
-  s = list(strParam)
-  ret = []
-  flag = False
-  for i in range(len(s)):
-    if flag == True:
+  l = list(strParam)
+  res = [] # Sonucun tutulacağı boş bir list (result)
+
+  for i in range(len(l)):
+
+    flag = False
+    
+    """ flag'in true olması N'den bir sonraki elemanı gösterdiği
+     için res'e ekleme işlemi yapılmayacağını belirtir.   """ 
+    if flag == True: 
       flag = False
       continue
-    if s[i] == 'M':
-      if len(ret) == 0:
+
+    if l[i] == 'M':  # M 'i göstermesi durumunda 
+      if i == 0:  # Dizinin ilk elemanı ise hiçbir şey yapma
         continue
-      else:
-        ret.append(ret[-1])
-    elif s[i] == 'N':
-      if i == len(s) - 1:
+      else: # Dizinin ilk elemanı değilse bir önceki elemanı res'e ekle
+        res.append(res[-1])
         continue
-      else:
-        flag = True
-    else:
-      ret.append(s[i])
 
-    strParam = ''.join(ret)
+    if l[i] == 'N':  # N 'i göstermesi durumu
+      if i == len(l) - 1: # Eğer son elemansa hiçbir şey yapma 
+        continue
+      else: # Son eleman değilse flag'ı True yap
+        flag == True 
+        continue
 
+    res.append(l[i]) # Eğer yukarıda hiçbir işlem yapılmadıysa elemanı res' e ekle.
+    
+  strParam = ''.join(res)
 
-  
+ 
   return strParam
 
 # keep this function call here 
