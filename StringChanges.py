@@ -1,32 +1,31 @@
 def StringChanges(strParam):
   l = list(strParam)
-  res = [] # Sonucun tutulacağı boş bir list (result)
+  res = [] # Sonucun tutulacaÄÄ± boÅ bir list (result)
 
+  flag = False
   for i in range(len(l)):
 
-    flag = False
-    
-    """ flag'in true olması N'den bir sonraki elemanı gösterdiği
-     için res'e ekleme işlemi yapılmayacağını belirtir.   """ 
+    """ flag'in true olmasÄ± N'den bir sonraki elemanÄ± gÃ¶sterdiÄi
+     iÃ§in res'e ekleme iÅlemi yapÄ±lmayacaÄÄ±nÄ± belirtir.   """ 
     if flag == True: 
       flag = False
       continue
 
-    if l[i] == 'M':  # M 'i göstermesi durumunda 
-      if i == 0:  # Dizinin ilk elemanı ise hiçbir şey yapma
+    if l[i] == 'M':  # M 'i gÃ¶stermesi durumunda 
+      if len(res) == 0:  # Dizinin ilk elemanÄ± ise hiÃ§bir Åey yapma
         continue
-      else: # Dizinin ilk elemanı değilse bir önceki elemanı res'e ekle
+      else: # Dizinin ilk elemanÄ± deÄilse bir Ã¶nceki elemanÄ± res'e ekle
         res.append(res[-1])
         continue
 
-    if l[i] == 'N':  # N 'i göstermesi durumu
-      if i == len(l) - 1: # Eğer son elemansa hiçbir şey yapma 
+    if l[i] == 'N':  # N 'i gÃ¶stermesi durumu
+      if i == len(l) - 1: # EÄer son elemansa hiÃ§bir Åey yapma 
         continue
-      else: # Son eleman değilse flag'ı True yap
-        flag == True 
+      else: # Son eleman deÄilse flag'Ä± True yap
+        flag = True 
         continue
 
-    res.append(l[i]) # Eğer yukarıda hiçbir işlem yapılmadıysa elemanı res' e ekle.
+    res.append(l[i]) # EÄer yukarÄ±da hiÃ§bir iÅlem yapÄ±lmadÄ±ysa elemanÄ± res' e ekle.
     
   strParam = ''.join(res)
 
