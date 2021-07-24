@@ -1,25 +1,29 @@
+def isequal(syl, word): # fonksiyonda tüm dizinin elemanlarının kombinasyonları deneniyor.
+
+  for i in range(len(syl) - 1):
+    for j in range(i + 1, len(syl)):
+      t = [syl[i], syl[j]]
+      temp = ''.join(t)
+      if temp == word:
+        return ','.join(t)
+
+  return -1
+
+
 def WordSplit(strArr):
+
   word = strArr[0]
-  syllable = strArr[1]
-  syllable = syllable.split(',')
+  syllable = strArr[1].split(',')
 
-  for i in range(len(syllable) - 1):
-    for j in range(i + 1, len(syllable)):
-      temp = [syllable[i], syllable[j]]
-      temp = ''.join(temp)
-      if word == temp:
-        temp = [syllable[i], syllable[j]]
-        return ','.join(temp)
+  t = isequal(syllable, word) # fonksiyon içerisinde tüm kombinasyonlar deneniyor.
+  if t != -1:
+    return t
 
-  syllable = syllable[::-1]
+  syllable = syllable[::-1] # dizi ters çeviriliyor 
 
-  for i in range(len(syllable) - 1):
-    for j in range(i + 1, len(syllable)):
-      temp = [syllable[i], syllable[j]]
-      temp = ''.join(temp)
-      if word == temp:
-        temp = [syllable[i], syllable[j]]
-        return ','.join(temp)
+  t = isequal(syllable, word) # tersten tüm kombinasyonlar deneniyor.
+  if t != -1:
+    return t
 
   return "not possible"
 
