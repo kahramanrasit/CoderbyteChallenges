@@ -1,20 +1,13 @@
 def StringCalculate(strParam):
-
- # "(4/2)(3-1)" the output was incorrect. The correct output is 4
-
-  # "7-4-1+8(3)/2
   
-  s = list(strParam)
-  res = []
-  for i in range(len(s)):
-    if i != len(s) -1:
-      if s[i + 1] == '(' and s[i] != '(': 
-        if s[i] == '*' or s[i] == '/' or s[i] == '-' or s[i] == '+':
-          pass
-        else:
-          s.insert(i + 1,'*')
+  l = list(strParam)
 
-  strParam = ''.join(s)
+  for i in range(len(l) - 1):
+    if l[i + 1] == '(' and l[i] != '(': 
+       if l[i] != '*' and l[i] != '/' and l[i] != '+' and l[i] != '-':
+        l.insert(i + 1, '*')
+
+  strParam = ''.join(l)
   
   return int(eval(strParam))
 
